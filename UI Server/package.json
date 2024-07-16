@@ -1,0 +1,50 @@
+{
+  "name": "employeemanagementsystem",
+  "version": "1.0.0",
+  "description": "A Employee Management System to manage all the employee.",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon -w server server/main.js",
+    "compile": "webpack --mode development ",
+    "watch": "webpack -w --config webpack.config.js --mode development",
+    "linter": "eslint ."
+  },
+  "keywords": [
+    "ems",
+    "employee management system"
+  ],
+  "author": "Karan Bhati",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/preset-react": "^7.24.1",
+    "apollo-server-express": "^3.13.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "graphql": "^16.8.1",
+    "mongodb": "^6.7.0",
+    "nodemon": "^3.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.1",
+    "webpack-merge": "^6.0.1",
+    "whatwg-fetch": "^3.6.20"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.5",
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.7",
+    "babel-loader": "^9.1.3",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.12.3",
+    "install": "^0.13.0",
+    "save-dev": "^0.0.1-security",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-middleware": "^7.2.1",
+    "webpack-hot-middleware": "^2.26.1",
+    "webpack-node-externals": "^3.0.0"
+  }
+}

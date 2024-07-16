@@ -1,0 +1,23 @@
+{
+  "name": "projectsetup",
+  "version": "1.0.0",
+  "description": "This is my project setup",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon -w server server/main.js"
+  },
+  "keywords": [
+    "projectsetup",
+    "assignment setup"
+  ],
+  "author": "Karan Bhati",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^3.13.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "graphql": "^16.8.1",
+    "mongodb": "^6.7.0",
+    "nodemon": "^3.1.0"
+  }
+}

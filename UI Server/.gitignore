@@ -1,0 +1,107 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules/
+
+# environment variable files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# build outputs
+build/
+dist/
+out/
+public/
+
+# coverage directory used by tools like istanbul
+coverage/
+
+# optional npm cache directory
+.npm
+
+# optional eslint cache
+.eslintcache
+
+# output of 'npm pack'
+*.tgz
+
+# yarn v1
+.yarn-integrity
+
+# yarn v2
+.pnp.*
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.yarn/patches
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+
+# next.js build output
+.next
+
+# gatsby files
+.cache/
+public/
+
+# vuepress build output
+.vuepress/dist
+
+# serverless directories
+.serverless/
+
+# fuse-box cache
+.fusebox/
+
+# docusaurus cache and generated files
+.docusaurus/
+.build/
+
+# fastboot build output
+.fastboot/
+
+# nuxt.js build output
+.nuxt/
+dist/
+
+# vue.js build output
+dist/
+*.local
+
+# Storybook build outputs
+out/
+.storybook-out/
+
+# miscellaneous
+.DS_Store
+*.pem
+*.p12
+
+# local firebase cache
+.firebase/
+
+# netlify cache
+.netlify/
+
+# Veracode
+.veracode/
+
+# SvelteKit
+.svelte-kit/
+.svelte/
+build/
+
+# TurboRepo
+turbo/
