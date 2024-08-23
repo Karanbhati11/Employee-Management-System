@@ -1,5 +1,6 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link as RouterLink } from "react-router-dom";
+import { AppBar, Toolbar, Typography, Button, Container } from "@mui/material";
 import EmployeeDirectory from "./EmployeeDirectory.jsx";
 import EmployeeSearch from "./EmployeeSearch.jsx";
 import EmployeeCreate from "./EmployeeCreate.jsx";
@@ -8,44 +9,49 @@ import EmployeeEdit from "./EmployeeEdit.jsx";
 import ErrorPage from "./ErrorPage.jsx";
 
 class Navbar extends React.Component {
-    render() {
-        return (
-            <React.Fragment>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <div className="container-fluid">
-                        <Link className="navbar-brand" to="/">{this.props.name}</Link>
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarNav">
-                            <ul className="navbar-nav ms-auto">
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/">Home</Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/search/all">Search</Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/create">Create</Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                <div className="container mt-3">
-                    <Routes>
-                        <Route path="/" element={<EmployeeDirectory />} />
-                        <Route path="/search/:type" element={<EmployeeSearch />} />
-                        <Route path="/search" element={<EmployeeSearch />} />
-                        <Route path="/create" element={<EmployeeCreate />} />
-                        <Route path="/employee/:id" element={<EmployeeDetails />} />
-                        <Route path="/edit/:id" element={<EmployeeEdit />} />
-                        <Route path="*" element={<ErrorPage />} />
-                    </Routes>
-                </div>
-            </React.Fragment>
-        );
-    }
+  render() {
+    return (
+      <React.Fragment>
+        <AppBar position="static" sx={{ backgroundColor: "black" }}>
+          <Toolbar>
+            <Typography variant="h6" sx={{ flexGrow: 1 }}>
+              <Button component={RouterLink} to="/" sx={{ color: "white" }}>
+                {this.props.name}
+              </Button>
+            </Typography>
+            <Button
+              component={RouterLink}
+              to="/"
+              sx={{ color: "white", marginRight: 2 }}
+            >
+              Home
+            </Button>
+            <Button
+              component={RouterLink}
+              to="/search/all"
+              sx={{ color: "white", marginRight: 2 }}
+            >
+              Search
+            </Button>
+            <Button component={RouterLink} to="/create" sx={{ color: "white" }}>
+              Create
+            </Button>
+          </Toolbar>
+        </AppBar>
+        <Container sx={{ marginTop: 3, color: "black" }}>
+          <Routes>
+            <Route path="/" element={<EmployeeDirectory />} />
+            <Route path="/search/:type" element={<EmployeeSearch />} />
+            <Route path="/search" element={<EmployeeSearch />} />
+            <Route path="/create" element={<EmployeeCreate />} />
+            <Route path="/employee/:id" element={<EmployeeDetails />} />
+            <Route path="/edit/:id" element={<EmployeeEdit />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </Container>
+      </React.Fragment>
+    );
+  }
 }
 
 export default Navbar;

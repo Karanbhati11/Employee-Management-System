@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { HashRouter as Router } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
+
 const App = () => {
   return <Navbar name={"Employee Management System"} />;
 };
@@ -14,4 +15,3 @@ root.render(
     </Router>
   </React.StrictMode>
 );
-

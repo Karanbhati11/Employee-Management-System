@@ -48,21 +48,31 @@ async function updateEmployee(_, { id, title, department, currentStatus }) {
 
 // function to delete an employee from the database
 async function deleteEmployee(_, { id }) {
-  // Delete the employee
+  // First, retrieve the employee's current status
+  const employee = await db.collection("employee").findOne({ id });
+
+  if (!employee) {
+    throw new Error(`Employee with id ${id} does not exist.`);
+  }
+
+  if (employee.currentStatus === 1) {
+    // If the employee is active, reject the deletion
+    throw new Error("CAN’T DELETE EMPLOYEE STATUS ACTIVE");
+  }
+
+  // If the employee is not active, proceed with deletion
   const result = await db.collection("employee").deleteOne({ id });
 
   if (result.deletedCount === 1) {
     // Decrement the counter only if an employee was deleted
-    await db.collection("counters").findOneAndUpdate(
-      { _id: "employee" },
-      { $inc: { current: -1 } }
-    );
+    await db
+      .collection("counters")
+      .findOneAndUpdate({ _id: "employee" }, { $inc: { current: -1 } });
     return true;
   }
 
   return false;
 }
-
 
 // function to insert or update an employee in the database
 async function insertEmployee(
@@ -99,11 +109,9 @@ async function insertEmployee(
     currentStatus,
   };
 
-  await db.collection("employee").updateOne(
-    { id: newId },
-    { $set: newEmployee },
-    { upsert: true }
-  );
+  await db
+    .collection("employee")
+    .updateOne({ id: newId }, { $set: newEmployee }, { upsert: true });
 
   return newEmployee;
 }
